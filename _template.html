@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- ======================================================================
+     PROJECT PAGE TEMPLATE
+     To make a new project page:
+       1. Duplicate this file and rename it, e.g. fossil.html
+          (lowercase, hyphens instead of spaces — this becomes the URL:
+          alekzia.com/fossil.html)
+       2. Fill in everything marked with CAPS
+       3. Add a matching cell to the grid in index.html
+     The underscore in this filename just keeps it sorted at the top and
+     signals "not a real page" — nothing links to it.
+     ====================================================================== -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT TITLE — Alekzia Hosein</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a class="wordmark" href="index.html">ALEKZIA&nbsp;HOSEIN</a>
+    <nav class="mono">
+      <a href="index.html">Work</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="project">
+
+    <h1>PROJECT TITLE</h1>
+
+    <div class="meta mono">
+      <div>Client — CLIENT NAME</div>
+      <div>Agency — AGENCY NAME</div>
+      <div>Role — Copywriter</div>
+    </div>
+
+    <div class="copy">
+      <p>FIRST PARAGRAPH OF INTRO COPY.</p>
+      <p>SECOND PARAGRAPH — delete this line if you only need one, or copy
+         the whole p-tag pair to add more.</p>
+    </div>
+
+    <!-- One video block per film. The Vimeo ID is the number at the end
+         of the video's vimeo.com URL. -->
+    <div class="video">
+      <iframe src="https://player.vimeo.com/video/VIMEO_ID_HERE" title="FILM NAME"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="caption mono">FILM NAME — :30</p>
+
+    <!-- Optional: full-width image -->
+    <figure>
+      <img src="images/FILENAME.jpg" alt="DESCRIBE THE IMAGE" loading="lazy">
+    </figure>
+
+    <!-- Optional: two images side by side -->
+    <figure class="pair">
+      <img src="images/FILENAME-A.jpg" alt="" loading="lazy">
+      <img src="images/FILENAME-B.jpg" alt="" loading="lazy">
+    </figure>
+
+    <div class="credits mono">
+      <div>Creative Director — <span>NAME</span></div>
+      <div>Art Director — <span>NAME</span></div>
+      <div>Copywriter — <span>Alekzia Hosein</span></div>
+    </div>
+
+  </main>
+
+  <footer class="mono">
+    <div>Alekzia Goldie — Copywriter, New York</div>
+    <div><a href="mailto:alekzia@alekzia.com">alekzia@alekzia.com</a></div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* ==========================================================================
+   ALEKZIA.COM — STYLESHEET
+   One file styles every page. Edit values here and the whole site updates.
+   Anything between /* and * / is a comment — the browser ignores it.
+   ========================================================================== */
+
+/* ---- DESIGN TOKENS ------------------------------------------------------
+   Change these variables to retheme the entire site in one place. */
+:root {
+  --bg: #f1f1ef;          /* plaster white background */
+  --ink: #141414;         /* near-black text */
+  --ink-soft: #6b6b68;    /* secondary text (captions, credits) */
+  --line: #d8d8d4;        /* hairline rules */
+  --gap: 14px;            /* grid gutter */
+  --pad: clamp(16px, 3vw, 40px); /* page side padding, scales with screen */
+}
+
+/* ---- RESET / BASICS ---------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Archivo", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video, iframe { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+/* Keyboard focus stays visible for accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ---- THE MONO LABEL STYLE ----------------------------------------------
+   Used for nav, captions, credits, metadata. The "garment label" voice. */
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- HEADER -------------------------------------------------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--pad);
+}
+
+/* The wordmark: your name. It animates open on page load (see @keyframes
+   below) and stretches when hovered. */
+.wordmark {
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 600;
+  line-height: 1;
+  font-variation-settings: "wdth" 125;
+  animation: stretch-open 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: font-variation-settings 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+.wordmark:hover { font-variation-settings: "wdth" 62; }
+
+@keyframes stretch-open {
+  from { font-variation-settings: "wdth" 62; letter-spacing: -0.02em; }
+  to   { font-variation-settings: "wdth" 125; letter-spacing: 0; }
+}
+
+nav { display: flex; gap: 24px; }
+nav a { border-bottom: 1px solid transparent; padding-bottom: 2px; }
+nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+
+/* ---- HOME PAGE GRID ------------------------------------------------------ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  gap: 28px var(--gap);
+  padding: 0 var(--pad) var(--pad);
+}
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+/* Each project cell: media on top, title caption below */
+.cell .media {
+  aspect-ratio: 16 / 10;      /* keeps every thumbnail the same shape */
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 10px, var(--line) 10px 11px);
+    /* ^ diagonal-stripe placeholder pattern; hidden once an image covers it */
+}
+.cell .media img,
+.cell .media video {
+  width: 100%; height: 100%;
+  object-fit: cover;          /* crops to fill without distortion */
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cell:hover .media img,
+.cell:hover .media video { transform: scale(1.03); }
+
+.cell .title {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  font-variation-settings: "wdth" 100;
+  transition: font-variation-settings 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cell:hover .title { font-variation-settings: "wdth" 125; }
+
+.cell .client {
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+/* ---- PROJECT PAGES ------------------------------------------------------- */
+.project {
+  padding: 0 var(--pad) var(--pad);
+  max-width: 1200px;
+}
+
+.project h1 {
+  font-size: clamp(34px, 6vw, 64px);
+  font-weight: 600;
+  line-height: 1.02;
+  font-variation-settings: "wdth" 118;
+  max-width: 14ch;
+  margin-bottom: 12px;
+}
+
+.meta {
+  color: var(--ink-soft);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+
+/* Body copy on project + about pages. 70ch keeps line length readable. */
+.copy { max-width: 70ch; }
+.copy p { margin-bottom: 1em; font-size: 16px; }
+.copy p:last-child { margin-bottom: 0; }
+
+/* ---- VIDEO EMBEDS --------------------------------------------------------
+   Wrap every Vimeo iframe in <div class="video"> and it stays responsive
+   at a 16:9 shape on every screen size. */
+.video {
+  aspect-ratio: 16 / 9;
+  margin: 40px 0;
+  background: var(--ink);
+}
+.video iframe { width: 100%; height: 100%; border: 0; }
+
+/* A caption line under a video or image */
+.caption { color: var(--ink-soft); margin-top: -28px; margin-bottom: 40px; }
+
+/* Full-width images on project pages */
+.project figure { margin: 40px 0; }
+.project figure figcaption { color: var(--ink-soft); margin-top: 8px; }
+.project figure.pair {           /* two images side by side */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+@media (max-width: 560px) { .project figure.pair { grid-template-columns: 1fr; } }
+
+/* ---- CREDITS BLOCK ------------------------------------------------------- */
+.credits {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px 24px;
+  line-height: 1.9;
+}
+.credits span { color: var(--ink); }
+
+/* ---- ABOUT PAGE ---------------------------------------------------------- */
+.about { padding: 0 var(--pad) var(--pad); }
+.about .copy { font-size: 20px; }
+.about .portrait { max-width: 420px; margin: 40px 0; }
+
+/* ---- FOOTER --------------------------------------------------------------- */
+footer {
+  padding: 60px var(--pad) var(--pad);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: var(--ink-soft);
+}
+footer a { border-bottom: 1px solid var(--line); }
+footer a:hover { border-bottom-color: var(--ink); color: var(--ink); }
+
+/* ---- REDUCED MOTION ------------------------------------------------------
+   People with motion sensitivity have this set at the OS level.
+   All animation is switched off for them. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

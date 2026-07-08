@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alekzia Goldie — Copywriter</title>
+  <meta name="description" content="Alekzia Goldie is a copywriter at Wieden+Kennedy New York.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <a class="wordmark" href="index.html">ALEKZIA&nbsp;GOLDIE</a>
+    <nav class="mono">
+      <a href="index.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- ====================================================================
+       THE GRID
+       Each project is one "cell". To add a project, copy an entire
+       <a class="cell"> ... </a> block and change three things:
+         1. href      → the project's html file
+         2. img src   → the thumbnail image (put it in the images/ folder)
+         3. the two text lines (title + client)
+       Order on the page = order in this file. Drag blocks to reorder.
+       ==================================================================== -->
+  <main class="grid">
+
+    <a class="cell" href="ford-carey-price.html">
+      <div class="media">
+      <video src="video/carey-thumb.mp4" poster="images/carey-thumb.jpg" autoplay muted loop playsinline></video>
+      </div>
+      <div class="title">Carey Price, Ford Driver</div>
+      <div class="client mono">Ford Canada · W+K</div>
+    </a>
+
+    <!-- PLACEHOLDER CELLS — one per remaining project.
+         Rename the title/client, point href at the page you create from
+         _template.html, and drop a thumbnail into images/. The striped
+         box disappears automatically once an image loads. -->
+
+    <a class="cell" href="ford-power-promise.html">
+      <div class="media">
+        <video src="video/fpp-thumb.mp4" poster="images/fpp-thumb.jpg" autoplay muted loop playsinline></video>
+      </div>
+      <div class="title">Ford Power Promise</div>
+      <div class="client mono">Ford · W+K </div>
+    </a>
+
+    <a class="cell" href="ford-MaBS.html">
+      <div class="media">
+    <video src="video/MaBS-thumb.mp4" poster="images/MaBS-thumb.jpg" autoplay muted loop playsinline></video>
+      </div>
+      <div class="title">Maverick and Bronco Sport</div>
+      <div class="client mono">Ford · W+K</div>
+    </a>
+
+    <a class="cell" href="ev-icons.html">
+      <div class="media">
+        <img src="images/ev-icons.jpg" alt="" loading="lazy">
+      </div>
+      <div class="title">Electric Icons</div>
+      <div class="client mono">Ford Canada · W+K</div>
+    </a>
+
+    <a class="cell" href="accenture-cloud.html">
+      <div class="media">
+              <img src="images/accenture-thumb.jpg" alt="" loading="lazy">
+      </div>
+      <div class="title">Take the World By Cloud</div>
+      <div class="client mono">Accenture Cloud · Droga5</div>
+    </a>
+
+    <!-- VIDEO THUMBNAIL EXAMPLE — A short, muted,
+         looping mp4 instead of a still image. Keep clips under ~5 MB.
+         Delete this block if you don't want one, or copy it for others. -->
+    <a class="cell" href="fossil.html">
+      <div class="media">
+      <video src="video/fossil-thumb.mp4" poster="images/fossil-thumb.jpg" autoplay muted loop playsinline></video>
+      </div>
+      <div class="title">Made for This</div>
+      <div class="client mono">Fossil · Mekanism</div>
+    </a>
+
+
+
+  </main>
+
+    <footer class="mono">
+    <div>Alekzia Goldie — Copywriter, New York</div>
+    <div><a href="mailto:alekzia@alekzia.com">alekzia@alekzia.com</a></div>
+  </footer>
+
+</body>
+</html>
